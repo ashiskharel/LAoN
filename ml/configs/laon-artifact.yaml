@@ -1,0 +1,11 @@
+# YOLO dataset config — single-class "artifact" crop/segment model
+# Train: yolo segment train data=ml/configs/laon-artifact.yaml model=yolo11n-seg.pt
+# Paths are relative to this file's parent (ml/) when using Ultralytics from repo root
+# with data path ml/configs/laon-artifact.yaml — set path to absolute if needed.
+
+path: ../datasets/artifact
+train: images/train
+val: images/val
+
+names:
+  0: artifact

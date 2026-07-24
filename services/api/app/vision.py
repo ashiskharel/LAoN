@@ -11,7 +11,8 @@ from PIL import Image, ImageOps
 
 from .config import EMBEDDINGS_PATH, DISCLAIMER
 from .catalog import all_objects, get_object
-from .models import MatchResult, MatchResponse
+from .models import CropInfo, MatchResult, MatchResponse
+from .preprocess import crop_artifact
 
 
 def _load_embedding_index() -> Optional[dict]:
@@ -78,15 +79,30 @@ def match_image(
     image_bytes: bytes,
     top_k: int = 8,
     cache_dir: Optional[Path] = None,
+    *,
+    crop: bool = True,
 ) -> MatchResponse:
     from .config import CACHE_DIR
 
     cache = cache_dir or CACHE_DIR
     cache.mkdir(parents=True, exist_ok=True)
 
+    # ML-0: crop/focus artifact before embedding
+    crop_res = crop_artifact(image_bytes, enabled=crop)
+    query_bytes = crop_res.image_bytes if crop else image_bytes
+    crop_info = CropInfo(
+        method=crop_res.method,
+        bbox=list(crop_res.bbox),
+        original_size=list(crop_res.original_size),
+        cropped_size=list(crop_res.cropped_size),
+        preview_jpeg_b64=crop_res.preview_jpeg_b64,
+        note=crop_res.note,
+    )
+
     index = _load_embedding_index()
     query_note = ""
     results: list[MatchResult] = []
+    crop_prefix = f"Preprocess crop={crop_res.method}. "
 
     if index is not None:
         # Prefer precomputed vectors if query embedding method matches simple fallback
@@ -96,13 +112,17 @@ def match_image(
         if method in ("simple_hist", "embedding", "openclip"):
             if method == "openclip":
                 query_note = (
-                    "Index was built with OpenCLIP; query uses simple features unless "
+                    crop_prefix
+                    + "Index was built with OpenCLIP; query uses simple features unless "
                     "you re-run embed tooling for live OpenCLIP. Ranking may be weak."
                 )
-                q_vec = _simple_image_vector(image_bytes)
+                q_vec = _simple_image_vector(query_bytes)
             else:
-                q_vec = _simple_image_vector(image_bytes)
-                query_note = f"Ranking with {method} features against precomputed index."
+                q_vec = _simple_image_vector(query_bytes)
+                query_note = (
+                    crop_prefix
+                    + f"Ranking with {method} features against precomputed index."
+                )
 
             # If dimensions mismatch (OpenCLIP vs simple), fall through to live simple
             if q_vec.shape[0] == index["vectors"].shape[1]:
@@ -130,17 +150,19 @@ def match_image(
                 return MatchResponse(
                     disclaimer=DISCLAIMER,
                     query_note=query_note
-                    or "Visual match against embedding index.",
+                    or (crop_prefix + "Visual match against embedding index."),
                     results=results,
+                    crop=crop_info,
                 )
 
     # Live simple similarity against public images in catalog
     query_note = (
-        "No compatible embedding index found (or dimension mismatch). "
+        crop_prefix
+        + "No compatible embedding index found (or dimension mismatch). "
         "Using live simple grayscale features on public catalog images. "
         "Run scripts/embed_corpus.py after adding images for better results."
     )
-    q_vec = _simple_image_vector(image_bytes)
+    q_vec = _simple_image_vector(query_bytes)
     scored: list[tuple[float, str, str]] = []
 
     for obj in all_objects():
@@ -188,4 +210,5 @@ def match_image(
         disclaimer=DISCLAIMER,
         query_note=query_note,
         results=results,
+        crop=crop_info,
     )

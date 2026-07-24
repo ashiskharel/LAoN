@@ -30,6 +30,19 @@ data/embeddings/
 *.npy
 *.pt
 *.bin
+*.onnx
+
+# ML training artifacts
+ml/weights/**
+!ml/weights/.gitkeep
+!ml/weights/README.md
+ml/datasets/artifact/images/**/*
+!ml/datasets/artifact/images/**/.gitkeep
+ml/datasets/artifact/labels/**/*
+!ml/datasets/artifact/labels/**/.gitkeep
+ml/runs/
+runs/
+wandb/
 
 # OS / IDE
 .DS_Store

@@ -77,6 +77,10 @@ def geo():
 async def match(
     file: UploadFile = File(...),
     top_k: int = Query(8, ge=1, le=30),
+    crop: bool = Query(
+        True,
+        description="ML-0: crop/focus the main artifact before matching (recommended).",
+    ),
 ):
     if not file.content_type or not file.content_type.startswith("image/"):
         # Allow octet-stream from some mobile clients
@@ -90,7 +94,7 @@ async def match(
         raise HTTPException(status_code=400, detail="Image too large (max 12MB).")
     if len(data) < 32:
         raise HTTPException(status_code=400, detail="Empty or invalid image.")
-    return match_image(data, top_k=top_k)
+    return match_image(data, top_k=top_k, crop=crop)
 
 
 @app.post("/api/report", response_model=ReportResponse)

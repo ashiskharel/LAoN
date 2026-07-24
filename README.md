@@ -75,11 +75,12 @@ python scripts/embed_corpus.py
 ```
 LAoN/
   apps/web/              Next.js PWA
-  services/api/          FastAPI (catalog + visual search)
+  services/api/          FastAPI (catalog + crop + visual search)
   packages/schema/       Shared JSON Schema for objects
   data/seed/             Public catalog JSON + geo
   data/private/          Local-only research images (gitignored)
-  docs/                  Ethics, data sources, notes
+  ml/                    YOLO dataset layout + Colab train notebook
+  docs/                  Ethics, data sources, ML training
   scripts/               Ingest + embed utilities
 ```
 
@@ -88,8 +89,22 @@ LAoN/
 - Browse / filter catalog (status, place, iconography tags)
 - Object detail with sources and museum links
 - Simple map of original sites in the seed set
-- Photo upload → ranked visual matches (embeddings when available; graceful fallback)
+- Photo upload → **ML-0 crop** (focus sculpture) → ranked visual matches
 - Download “possible match” report JSON
+
+## ML (cost-effective / social)
+
+| Phase | What | Cost |
+|---|---|---|
+| **ML-0** | Crop artifact before match (`edge_saliency` always; optional `rembg`) | $0 |
+| **ML-1** | Community YOLO `artifact` train on free Colab GPU | $0 |
+| **ML-2** | Fine iconography classes (later) | Volunteer labels |
+
+- Guide: [docs/ml-training.md](docs/ml-training.md)
+- Train notebook: [ml/notebooks/train_yolo_colab.ipynb](ml/notebooks/train_yolo_colab.ipynb)
+- Optional better crop: `pip install -r services/api/requirements-ml.txt`
+
+**Google ML Kit** is for on-device inference of stock models — not our training path. We train with open YOLO + Colab; ML Kit/TFLite can be an export target later.
 
 ## Stack
 

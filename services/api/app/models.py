@@ -80,10 +80,22 @@ class MatchResult(BaseModel):
     matched_image_url: Optional[str] = None
 
 
+class CropInfo(BaseModel):
+    """ML-0 preprocess: focused region used for matching (not an identity claim)."""
+
+    method: str
+    bbox: list[int]  # [x0, y0, x1, y1]
+    original_size: list[int]  # [w, h]
+    cropped_size: list[int]
+    preview_jpeg_b64: Optional[str] = None
+    note: str = ""
+
+
 class MatchResponse(BaseModel):
     disclaimer: str
     query_note: str
     results: list[MatchResult]
+    crop: Optional[CropInfo] = None
 
 
 class ReportRequest(BaseModel):

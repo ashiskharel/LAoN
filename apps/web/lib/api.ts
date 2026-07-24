@@ -49,10 +49,20 @@ export type MatchResult = {
   matched_image_url?: string | null;
 };
 
+export type CropInfo = {
+  method: string;
+  bbox: number[];
+  original_size: number[];
+  cropped_size: number[];
+  preview_jpeg_b64?: string | null;
+  note?: string;
+};
+
 export type MatchResponse = {
   disclaimer: string;
   query_note: string;
   results: MatchResult[];
+  crop?: CropInfo | null;
 };
 
 export async function fetchObjects(params?: {
@@ -106,13 +116,20 @@ export async function fetchGeo(): Promise<GeoCollection> {
   return res.json();
 }
 
-export async function matchImage(file: File, topK = 8): Promise<MatchResponse> {
+export async function matchImage(
+  file: File,
+  topK = 8,
+  crop = true
+): Promise<MatchResponse> {
   const form = new FormData();
   form.append("file", file);
-  const res = await fetch(`${API_URL}/api/match?top_k=${topK}`, {
-    method: "POST",
-    body: form,
-  });
+  const res = await fetch(
+    `${API_URL}/api/match?top_k=${topK}&crop=${crop ? "true" : "false"}`,
+    {
+      method: "POST",
+      body: form,
+    }
+  );
   if (!res.ok) {
     const text = await res.text();
     throw new Error(text || `Match failed ${res.status}`);

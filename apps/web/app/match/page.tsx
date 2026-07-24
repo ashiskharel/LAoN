@@ -128,6 +128,31 @@ export default function MatchPage() {
           <p className="meta">{result.disclaimer}</p>
           <p className="meta">{result.query_note}</p>
 
+          {result.crop?.preview_jpeg_b64 && (
+            <div className="panel">
+              <h2 style={{ marginTop: 0 }}>Focused region (ML crop)</h2>
+              <p className="meta">
+                Method: <strong>{result.crop.method}</strong>
+                {result.crop.note ? ` — ${result.crop.note}` : ""}
+              </p>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`data:image/jpeg;base64,${result.crop.preview_jpeg_b64}`}
+                alt="Cropped region used for matching"
+                style={{
+                  maxHeight: 280,
+                  maxWidth: "100%",
+                  borderRadius: 8,
+                  marginTop: "0.5rem",
+                }}
+              />
+              <p className="meta" style={{ marginTop: "0.5rem" }}>
+                Cropping helps ignore glass cases and room background. It does
+                not identify the object by itself.
+              </p>
+            </div>
+          )}
+
           <h2>Results</h2>
           {result.results.length === 0 ? (
             <p className="empty">
