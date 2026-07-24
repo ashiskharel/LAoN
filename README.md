@@ -84,8 +84,23 @@ LAoN/
   scripts/               Ingest + embed utilities
 ```
 
+## Visitor mobile app (PWA)
+
+There is **no separate App Store binary** yet — on purpose for a free social project.
+
+**Use the visitor camera on any phone browser:**
+
+1. Open the site (or `http://YOUR-LAN-IP:3000/visit` while developing)
+2. Go to **`/visit`** — rear camera + shutter (or gallery fallback)
+3. **Add to Home Screen** (iOS Share → Add to Home Screen / Android Install app)
+
+That installs LAoN as a standalone icon that launches straight into the camera flow (`manifest` `start_url` is `/visit`).
+
+Native wrappers (Expo / Capacitor) can come later if store distribution is required.
+
 ## MVP features
 
+- **Visitor camera** (`/visit`) — mobile-first photo → match for gallery visitors
 - Browse / filter catalog (status, place, iconography tags)
 - Object detail with sources and museum links
 - Simple map of original sites in the seed set

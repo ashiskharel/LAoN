@@ -45,20 +45,32 @@ export default async function HomePage() {
       <h1>Find where Nepal&apos;s arts went</h1>
       <p className="lead">
         Browse a curated catalog of documented objects, explore original sites
-        on a map, or photograph a sculpture to see possible visual matches in
-        open museum data. Built for art aficionados of Nepal — open source,
+        on a map, or open the <strong>visitor camera</strong> on your phone to
+        photograph a sculpture and see possible visual matches. Open source,
         independent, research-first.
       </p>
 
-      <div className="panel" style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
-        <Link className="btn" href="/match">
-          Match a photo
+      <section className="hero-camera">
+        <h2>Visitor camera (mobile app)</h2>
+        <p className="meta" style={{ margin: 0 }}>
+          Gallery and temple visitors: open this on your phone, point at a
+          sculpture, and get possible catalog matches. Install to your home
+          screen for an app-like icon — no App Store required.
+        </p>
+        <Link className="btn" href="/visit">
+          Open visitor camera
         </Link>
+      </section>
+
+      <div className="panel" style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
         <Link className="btn secondary" href="/catalog">
           Browse catalog
         </Link>
         <Link className="btn secondary" href="/map">
           Valley sites map
+        </Link>
+        <Link className="btn secondary" href="/match">
+          Classic match page
         </Link>
       </div>
 

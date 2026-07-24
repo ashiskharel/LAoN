@@ -19,11 +19,23 @@ export default function AboutPage() {
 
       <h2>What you can do</h2>
       <ul>
+        <li>
+          <strong>Visitor camera</strong> at <code>/visit</code> — take a photo
+          in a gallery or temple on your phone (installable PWA)
+        </li>
         <li>Browse catalog entries (status, place, iconography tags)</li>
         <li>Open original-site pins on a simple map list</li>
         <li>Upload a photo for ranked possible matches</li>
         <li>Download a JSON evidence package to share with experts you trust</li>
       </ul>
+
+      <h2>Is there a mobile app?</h2>
+      <p>
+        Yes in practice: the <strong>Progressive Web App</strong> visitor camera.
+        Open the site on your phone, use <code>/visit</code>, then{" "}
+        <em>Add to Home Screen</em>. No App Store fees for a social project. A
+        native store app can wrap the same flow later if needed.
+      </p>
 
       <h2>Dual corpus</h2>
       <p>

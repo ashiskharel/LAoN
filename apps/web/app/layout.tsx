@@ -5,11 +5,16 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "LAoN — Lost Ancient Arts of Nepal",
   description:
-    "Photo a Nepali sculpture and find possible matches in open museum records and a curated catalog. Research aid only — not a legal claim tool.",
+    "Visitor camera: photograph a Nepali sculpture and find possible matches in open museum records. Research aid only — not a legal claim tool.",
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,
     title: "LAoN",
+    statusBarStyle: "black-translucent",
+  },
+  icons: {
+    icon: "/icons/icon.svg",
+    apple: "/icons/icon.svg",
   },
 };
 
@@ -43,8 +48,8 @@ export default function RootLayout({
             </div>
             <nav>
               <Link href="/">Home</Link>
+              <Link href="/visit">Visitor camera</Link>
               <Link href="/catalog">Catalog</Link>
-              <Link href="/match">Match photo</Link>
               <Link href="/map">Map</Link>
               <Link href="/about">About</Link>
             </nav>
@@ -56,6 +61,32 @@ export default function RootLayout({
             <Link href="/about">Ethics & sources</Link>
           </footer>
         </main>
+        <nav className="mobile-dock" aria-label="Primary">
+          <Link href="/">
+            <span className="dock-icon" aria-hidden>
+              ⌂
+            </span>
+            Home
+          </Link>
+          <Link href="/visit" className="dock-camera">
+            <span className="dock-icon" aria-hidden>
+              ◎
+            </span>
+            Camera
+          </Link>
+          <Link href="/catalog">
+            <span className="dock-icon" aria-hidden>
+              ≡
+            </span>
+            Catalog
+          </Link>
+          <Link href="/map">
+            <span className="dock-icon" aria-hidden>
+              ✶
+            </span>
+            Map
+          </Link>
+        </nav>
       </body>
     </html>
   );
