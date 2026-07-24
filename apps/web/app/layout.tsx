@@ -49,6 +49,7 @@ export default function RootLayout({
             <nav>
               <Link href="/">Home</Link>
               <Link href="/visit">Visitor camera</Link>
+              <Link href="/research">Research</Link>
               <Link href="/catalog">Catalog</Link>
               <Link href="/map">Map</Link>
               <Link href="/about">About</Link>
@@ -74,17 +75,17 @@ export default function RootLayout({
             </span>
             Camera
           </Link>
+          <Link href="/research">
+            <span className="dock-icon" aria-hidden>
+              ✎
+            </span>
+            Research
+          </Link>
           <Link href="/catalog">
             <span className="dock-icon" aria-hidden>
               ≡
             </span>
             Catalog
-          </Link>
-          <Link href="/map">
-            <span className="dock-icon" aria-hidden>
-              ✶
-            </span>
-            Map
           </Link>
         </nav>
       </body>

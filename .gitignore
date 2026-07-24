@@ -25,6 +25,8 @@ build/
 data/private/**
 !data/private/README.md
 !data/private/.gitkeep
+data/local/**
+!data/local/README.md
 data/cache/
 data/embeddings/
 *.npy

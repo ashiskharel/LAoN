@@ -12,6 +12,8 @@ PRIVATE_CORPUS_PATH = Path(
 )
 CACHE_DIR = DATA_DIR / "cache"
 CACHE_DIR.mkdir(parents=True, exist_ok=True)
+LOCAL_DIR = Path(os.environ.get("LAON_LOCAL_DIR", DATA_DIR / "local"))
+LOCAL_DIR.mkdir(parents=True, exist_ok=True)
 
 CORS_ORIGINS = [
     o.strip()

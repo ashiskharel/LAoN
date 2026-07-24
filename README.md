@@ -25,6 +25,19 @@ It is **not** affiliated with NHRC, Lost Arts of Nepal, Himalayan Art Resources,
 |---|---|---|
 | Public open subset | Metadata, CC0 museum images, licensed community photos | Yes |
 | Private research corpus | Book plates / restricted research images you add locally | **No** (`data/private/`) |
+| **Local research DB** | SQLite + Bangdel plate photos + labels/locations | **No** (`data/local/`) |
+
+### Bangdel plate capture (local)
+
+Photograph plates from *Stolen Images of Nepal* with page, place, and labels:
+
+1. Start API + web  
+2. Open **http://localhost:3000/research**  
+3. Take/choose photo → fill deity, place/tole, Bangdel page, notes → **Save**  
+4. **Export for matching** → copies into private corpus + seed metadata  
+5. `python scripts/embed_corpus.py`  
+
+Storage: `data/local/research.db` + `data/local/images/bangdel/` (never committed).
 
 Operators can set `PRIVATE_CORPUS_PATH` to improve match recall on a self-hosted instance. The default open demo uses public images only.
 
