@@ -1,0 +1,10 @@
+{
+  "name": "LAoN — Lost Ancient Arts of Nepal",
+  "short_name": "LAoN",
+  "description": "Photo a Nepali sculpture to find possible museum and catalog matches.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f1410",
+  "theme_color": "#0f1410",
+  "lang": "en"
+}

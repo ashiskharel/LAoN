@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Build / cache
+.next/
+out/
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.turbo/
+*.tsbuildinfo
+
+# Data & private corpus (never commit private research images)
+data/private/**
+!data/private/README.md
+!data/private/.gitkeep
+data/cache/
+data/embeddings/
+*.npy
+*.pt
+*.bin
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local secrets
+credentials.json
+service-account*.json

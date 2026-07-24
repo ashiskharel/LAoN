@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laon.local/schema/object.schema.json",
+  "title": "LAoN Cultural Object",
+  "type": "object",
+  "required": ["id", "titles", "status", "sources"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$" },
+    "titles": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "culture": { "type": "string" },
+    "period": { "type": "string" },
+    "material": { "type": "string" },
+    "dimensions": { "type": "string" },
+    "iconography_tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "in_situ",
+        "stolen_documented",
+        "museum",
+        "private",
+        "repatriated",
+        "unknown"
+      ]
+    },
+    "original_site": {
+      "type": "object",
+      "properties": {
+        "place": { "type": "string" },
+        "tole": { "type": "string" },
+        "temple": { "type": "string" },
+        "geo": {
+          "type": "object",
+          "properties": {
+            "lat": { "type": "number" },
+            "lng": { "type": "number" }
+          }
+        }
+      }
+    },
+    "current_location": {
+      "type": "object",
+      "properties": {
+        "institution": { "type": "string" },
+        "accession": { "type": "string" },
+        "url": { "type": "string" },
+        "country": { "type": "string" }
+      }
+    },
+    "provenance_notes": { "type": "string" },
+    "theft_date": { "type": "string" },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["label"],
+        "properties": {
+          "label": { "type": "string" },
+          "url": { "type": "string" },
+          "citation": { "type": "string" }
+        }
+      },
+      "minItems": 1
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["url", "type", "license", "visibility"],
+        "properties": {
+          "url": { "type": "string" },
+          "type": {
+            "type": "string",
+            "enum": ["historical", "museum", "community", "empty_niche"]
+          },
+          "license": { "type": "string" },
+          "attribution": { "type": "string" },
+          "source_url": { "type": "string" },
+          "visibility": {
+            "type": "string",
+            "enum": ["public", "private"]
+          },
+          "photographer": { "type": "string" }
+        }
+      }
+    },
+    "match_links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "object_id": { "type": "string" },
+          "confidence": { "type": "number" },
+          "method": { "type": "string" },
+          "reviewed_by": { "type": "string" }
+        }
+      }
+    }
+  }
+}

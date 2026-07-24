@@ -1,0 +1,1171 @@
+{
+  "version": 1,
+  "disclaimer": "Possible visual match data only — not a determination of legal ownership. Public subset for LAoN demo.",
+  "objects": [
+    {
+      "id": "met-1982-220-1",
+      "titles": [
+        "Temple Strut with a Salabhanjika"
+      ],
+      "culture": "Nepal",
+      "period": "13th century",
+      "material": "Wood",
+      "dimensions": null,
+      "iconography_tags": [
+        "salabhanjika",
+        "temple-strut",
+        "wood-carving"
+      ],
+      "status": "repatriated",
+      "original_site": {
+        "place": "Kathmandu Valley",
+        "tole": null,
+        "temple": null,
+        "geo": {
+          "lat": 27.7172,
+          "lng": 85.324
+        }
+      },
+      "current_location": {
+        "institution": "Returned to Government of Nepal (formerly Metropolitan Museum of Art)",
+        "accession": "1982.220.1 (former Met)",
+        "url": "https://www.metmuseum.org/art/collecting-practices/repatriated-objects",
+        "country": "Nepal"
+      },
+      "provenance_notes": "Met initiated return to Nepal (2021–2022) after provenance research determined the object should be returned. Gift to the Met in the 1990s era collections context; documented in Met repatriated objects list.",
+      "theft_date": null,
+      "sources": [
+        {
+          "label": "Met — Repatriated Objects",
+          "url": "https://www.metmuseum.org/art/collecting-practices/repatriated-objects",
+          "citation": "Metropolitan Museum of Art. Repatriated Objects (Nepal returns)."
+        }
+      ],
+      "images": [],
+      "match_links": []
+    },
+    {
+      "id": "met-shiva-himalayan-abode",
+      "titles": [
+        "Shiva in Himalayan Abode with Ascetics"
+      ],
+      "culture": "Nepal",
+      "period": "10th century",
+      "material": "Stone",
+      "dimensions": null,
+      "iconography_tags": [
+        "shiva",
+        "saiva",
+        "ascetics"
+      ],
+      "status": "repatriated",
+      "original_site": {
+        "place": "Kathmandu Valley",
+        "tole": null,
+        "temple": null,
+        "geo": {
+          "lat": 27.71,
+          "lng": 85.32
+        }
+      },
+      "current_location": {
+        "institution": "Returned to Government of Nepal (formerly Metropolitan Museum of Art)",
+        "accession": null,
+        "url": "https://www.metmuseum.org/art/collecting-practices/repatriated-objects",
+        "country": "Nepal"
+      },
+      "provenance_notes": "Met offered return to the Government of Nepal after internal research (2021–2022).",
+      "theft_date": null,
+      "sources": [
+        {
+          "label": "Met — Repatriated Objects",
+          "url": "https://www.metmuseum.org/art/collecting-practices/repatriated-objects",
+          "citation": "Metropolitan Museum of Art. Repatriated Objects."
+        }
+      ],
+      "images": [],
+      "match_links": []
+    },
+    {
+      "id": "patko-laxmi-narayan",
+      "titles": [
+        "Laxmi-Narayan of Patko Tole",
+        "Lakshmi-Narayana stele"
+      ],
+      "culture": "Nepal",
+      "period": "12th century",
+      "material": "Stone",
+      "dimensions": null,
+      "iconography_tags": [
+        "lakshmi-narayana",
+        "vaisnava",
+        "stele"
+      ],
+      "status": "repatriated",
+      "original_site": {
+        "place": "Patan",
+        "tole": "Patko Tole",
+        "temple": "Laxmi-Narayan temple",
+        "geo": {
+          "lat": 27.673,
+          "lng": 85.325
+        }
+      },
+      "current_location": {
+        "institution": "Reinstalled at original site / community custody (returned via Nepal government channels; formerly Dallas Museum of Art context)",
+        "accession": null,
+        "url": "https://nepalheritagerecoverycampaign.org/news/laxmi_narayan_home/",
+        "country": "Nepal"
+      },
+      "provenance_notes": "Stolen 1984; returned and reinstated to Patko Tole (2021). Widely reported case. Documented in Bangdel-era scholarship as among Valley thefts.",
+      "theft_date": "1984",
+      "sources": [
+        {
+          "label": "NHRC campaign story (public web)",
+          "url": "https://nepalheritagerecoverycampaign.org/laxmi-narayana/",
+          "citation": "Nepal Heritage Recovery Campaign. Laxmi Narayana case pages (public)."
+        },
+        {
+          "label": "Bangdel (bibliographic)",
+          "citation": "Bangdel, Lain Singh. Stolen Images of Nepal. Royal Nepal Academy, 1989. (metadata citation only; plates not republished here)"
+        }
+      ],
+      "images": [],
+      "match_links": []
+    },
+    {
+      "id": "rubin-yampi-carving",
+      "titles": [
+        "Wooden carving from Yampi Mahavihara"
+      ],
+      "culture": "Nepal",
+      "period": "17th century",
+      "material": "Wood",
+      "dimensions": null,
+      "iconography_tags": [
+        "wood-carving",
+        "mahavihara",
+        "patan"
+      ],
+      "status": "repatriated",
+      "original_site": {
+        "place": "Patan (Lalitpur)",
+        "tole": null,
+        "temple": "Yampi Mahavihara",
+        "geo": {
+          "lat": 27.676,
+          "lng": 85.325
+        }
+      },
+      "current_location": {
+        "institution": "Returned to Nepal (formerly Rubin Museum of Art)",
+        "accession": null,
+        "url": "https://rubinmuseum.org/our-collection/about-the-collection/ongoing-research-provenance/",
+        "country": "Nepal"
+      },
+      "provenance_notes": "Rubin agreed to return after determining objects were stolen from religious sites (announced ~2021–2022). Citizen research publicly associated with Lost Arts of Nepal / NHRC reporting.",
+      "theft_date": null,
+      "sources": [
+        {
+          "label": "Rubin — provenance research",
+          "url": "https://rubinmuseum.org/our-collection/about-the-collection/ongoing-research-provenance/",
+          "citation": "Rubin Museum of Himalayan Art. Ongoing Research & Provenance."
+        }
+      ],
+      "images": [],
+      "match_links": []
+    },
+    {
+      "id": "rubin-itum-apsara",
+      "titles": [
+        "Apsara carving from Itum Bahal"
+      ],
+      "culture": "Nepal",
+      "period": "14th century",
+      "material": "Wood",
+      "dimensions": null,
+      "iconography_tags": [
+        "apsara",
+        "wood-carving",
+        "bahal"
+      ],
+      "status": "repatriated",
+      "original_site": {
+        "place": "Kathmandu",
+        "tole": null,
+        "temple": "Itum Bahal",
+        "geo": {
+          "lat": 27.707,
+          "lng": 85.308
+        }
+      },
+      "current_location": {
+        "institution": "Returned to Nepal (formerly Rubin Museum of Art)",
+        "accession": null,
+        "url": "https://rubinmuseum.org/our-collection/about-the-collection/ongoing-research-provenance/",
+        "country": "Nepal"
+      },
+      "provenance_notes": "Paired with Yampi return; 14th-century apsara carving identified as from Itum Bahal monastery.",
+      "theft_date": null,
+      "sources": [
+        {
+          "label": "Rubin — provenance research",
+          "url": "https://rubinmuseum.org/our-collection/about-the-collection/ongoing-research-provenance/",
+          "citation": "Rubin Museum of Himalayan Art. Ongoing Research & Provenance."
+        }
+      ],
+      "images": [],
+      "match_links": []
+    },
+    {
+      "id": "cma-1978-70",
+      "titles": [
+        "Varahi"
+      ],
+      "culture": "Nepal",
+      "period": "c. 1300s",
+      "material": "Bronze",
+      "dimensions": "Overall: 21 cm (8 1/4 in.)",
+      "iconography_tags": [
+        "varahi",
+        "shakta",
+        "bronze"
+      ],
+      "status": "museum",
+      "original_site": {
+        "place": "Nepal",
+        "tole": null,
+        "temple": null,
+        "geo": null
+      },
+      "current_location": {
+        "institution": "Cleveland Museum of Art",
+        "accession": "1978.70",
+        "url": "https://www.clevelandart.org/art/1978.70",
+        "country": "United States"
+      },
+      "provenance_notes": "Open Access CMA collection object catalogued as Nepal. Presence in a museum catalog alone is not a LAoN determination of illicit origin.",
+      "theft_date": null,
+      "sources": [
+        {
+          "label": "Cleveland Museum of Art collection",
+          "url": "https://www.clevelandart.org/art/1978.70",
+          "citation": "Cleveland Museum of Art. Varahi, 1978.70 (Open Access)."
+        }
+      ],
+      "images": [
+        {
+          "url": "https://openaccess-cdn.clevelandart.org/1978.70/1978.70_web.jpg",
+          "type": "museum",
+          "license": "CC0",
+          "attribution": "Cleveland Museum of Art",
+          "source_url": "https://www.clevelandart.org/art/1978.70",
+          "visibility": "public"
+        }
+      ],
+      "match_links": []
+    },
+    {
+      "id": "seed-uma-mahesvara-example",
+      "titles": [
+        "Uma-Mahesvara (documented type)"
+      ],
+      "culture": "Nepal",
+      "period": "10th–14th century (type)",
+      "material": "Stone",
+      "dimensions": null,
+      "iconography_tags": [
+        "uma-mahesvara",
+        "saiva",
+        "stone"
+      ],
+      "status": "stolen_documented",
+      "original_site": {
+        "place": "Kathmandu Valley",
+        "tole": null,
+        "temple": null,
+        "geo": {
+          "lat": 27.671,
+          "lng": 85.324
+        }
+      },
+      "current_location": {
+        "institution": null,
+        "accession": null,
+        "url": null,
+        "country": null
+      },
+      "provenance_notes": "Placeholder type-record for Uma-Mahesvara sculptures frequently documented as stolen from Valley sites in Bangdel (1989). Replace with site-specific records as seed grows. Historical plates belong in private research corpus only.",
+      "theft_date": "1970s–1980s (various documented cases)",
+      "sources": [
+        {
+          "label": "Bangdel (bibliographic)",
+          "citation": "Bangdel, Lain Singh. Stolen Images of Nepal. Royal Nepal Academy, 1989."
+        },
+        {
+          "label": "Huntington Archive — Nepal lost/stolen overview",
+          "url": "https://huntingtonarchive.org/resources/lostStolen/nepal.php",
+          "citation": "The Huntington Archive. Lost, Stolen, and Damaged Images: Nepal."
+        }
+      ],
+      "images": [],
+      "match_links": []
+    },
+    {
+      "id": "seed-padmapani-example",
+      "titles": [
+        "Bodhisattva Padmapani (documented type)"
+      ],
+      "culture": "Nepal",
+      "period": "9th–15th century (type)",
+      "material": "Stone",
+      "dimensions": null,
+      "iconography_tags": [
+        "padmapani",
+        "avalokitesvara",
+        "buddhist"
+      ],
+      "status": "stolen_documented",
+      "original_site": {
+        "place": "Kathmandu Valley",
+        "tole": null,
+        "temple": null,
+        "geo": {
+          "lat": 27.68,
+          "lng": 85.33
+        }
+      },
+      "current_location": null,
+      "provenance_notes": "Type-record for Padmapani images documented among Valley losses. Site-specific IDs should replace this as data improves.",
+      "theft_date": "1970s–1980s (various)",
+      "sources": [
+        {
+          "label": "Bangdel (bibliographic)",
+          "citation": "Bangdel, Lain Singh. Stolen Images of Nepal. Royal Nepal Academy, 1989."
+        },
+        {
+          "label": "Huntington Archive",
+          "url": "https://huntingtonarchive.org/resources/lostStolen/nepal.php",
+          "citation": "The Huntington Archive. Lost, Stolen, and Damaged Images: Nepal."
+        }
+      ],
+      "images": [],
+      "match_links": []
+    },
+    {
+      "id": "seed-surya-saugal-type",
+      "titles": [
+        "Surya (Saugal / Patan type documentation)"
+      ],
+      "culture": "Nepal",
+      "period": "1083 CE (related documented work)",
+      "material": "Grey limestone",
+      "dimensions": "H: ca. 34 in. (documented related works)",
+      "iconography_tags": [
+        "surya",
+        "saugal",
+        "patan"
+      ],
+      "status": "stolen_documented",
+      "original_site": {
+        "place": "Patan",
+        "tole": "Saugal",
+        "temple": null,
+        "geo": {
+          "lat": 27.6735,
+          "lng": 85.3265
+        }
+      },
+      "current_location": null,
+      "provenance_notes": "Bangdel/Huntington documentation includes a Surya from Saugal, Patan, stolen May 16, 1985. This seed entry is a citation pointer for that documentary cluster; add confirmed museum match IDs when verified.",
+      "theft_date": "1985-05-16",
+      "sources": [
+        {
+          "label": "Huntington Archive Nepal section",
+          "url": "https://huntingtonarchive.org/resources/lostStolen/nepal.php",
+          "citation": "Huntington Archive compilation of Bangdel documentation (Surya, Saugal)."
+        },
+        {
+          "label": "Bangdel (bibliographic)",
+          "citation": "Bangdel, Lain Singh. Stolen Images of Nepal. Royal Nepal Academy, 1989."
+        }
+      ],
+      "images": [],
+      "match_links": []
+    },
+    {
+      "id": "seed-empty-niche-kumbhesvara",
+      "titles": [
+        "Empty niche documentation — Kumbhesvara area (type)"
+      ],
+      "culture": "Nepal",
+      "period": null,
+      "material": null,
+      "dimensions": null,
+      "iconography_tags": [
+        "empty-niche",
+        "kumbhesvara",
+        "patan"
+      ],
+      "status": "stolen_documented",
+      "original_site": {
+        "place": "Patan",
+        "tole": null,
+        "temple": "Kumbhesvara complex (area)",
+        "geo": {
+          "lat": 27.679,
+          "lng": 85.326
+        }
+      },
+      "current_location": null,
+      "provenance_notes": "Many Kumbhesvara-area sculptures appear in Bangdel’s documentation with empty-niche after-photos. Use private corpus for plate matching; public entry is place-level awareness only.",
+      "theft_date": "late 1970s–1980s (various)",
+      "sources": [
+        {
+          "label": "Bangdel (bibliographic)",
+          "citation": "Bangdel, Lain Singh. Stolen Images of Nepal. Royal Nepal Academy, 1989."
+        }
+      ],
+      "images": [],
+      "match_links": []
+    },
+    {
+      "id": "seed-changu-visnu-type",
+      "titles": [
+        "Visnu (Changu Narayan area documentation)"
+      ],
+      "culture": "Nepal",
+      "period": "15th–17th century (various documented)",
+      "material": "Stone",
+      "dimensions": null,
+      "iconography_tags": [
+        "visnu",
+        "changu-narayan",
+        "vaisnava"
+      ],
+      "status": "stolen_documented",
+      "original_site": {
+        "place": "Changu Narayan",
+        "tole": null,
+        "temple": "Changu Narayan",
+        "geo": {
+          "lat": 27.7163,
+          "lng": 85.4279
+        }
+      },
+      "current_location": null,
+      "provenance_notes": "Huntington/Bangdel records include Visnu and related images stolen from Changu Narayan (e.g. late 1980s documentation). Site-level seed for map browsing.",
+      "theft_date": "1980s (various)",
+      "sources": [
+        {
+          "label": "Huntington Archive",
+          "url": "https://huntingtonarchive.org/resources/lostStolen/nepal.php",
+          "citation": "Huntington Archive. Lost, Stolen, and Damaged Images: Nepal."
+        }
+      ],
+      "images": [],
+      "match_links": []
+    },
+    {
+      "id": "seed-in-situ-awareness",
+      "titles": [
+        "In-situ protection awareness (iron bars / community care)"
+      ],
+      "culture": "Nepal",
+      "period": null,
+      "material": "Stone (various)",
+      "dimensions": null,
+      "iconography_tags": [
+        "in-situ",
+        "protection",
+        "community"
+      ],
+      "status": "in_situ",
+      "original_site": {
+        "place": "Kathmandu Valley",
+        "tole": null,
+        "temple": null,
+        "geo": {
+          "lat": 27.7,
+          "lng": 85.32
+        }
+      },
+      "current_location": {
+        "institution": "In community / temple custody",
+        "accession": null,
+        "url": null,
+        "country": "Nepal"
+      },
+      "provenance_notes": "Bangdel and later documentation record many images that remain in place, sometimes after failed theft attempts, now protected by iron bars or community vigilance. LAoN encourages documenting still-present works to create a living baseline.",
+      "theft_date": null,
+      "sources": [
+        {
+          "label": "Bangdel (bibliographic)",
+          "citation": "Bangdel, Lain Singh. Stolen Images of Nepal. Royal Nepal Academy, 1989."
+        }
+      ],
+      "images": [],
+      "match_links": []
+    },
+    {
+      "id": "cma-149444",
+      "titles": [
+        "Royal Female Donor"
+      ],
+      "culture": "Nepal",
+      "period": "c. 1500",
+      "material": "bronze",
+      "dimensions": "Overall: 15.4 cm (6 1/16 in.)",
+      "iconography_tags": [],
+      "status": "museum",
+      "original_site": {
+        "place": "Nepal",
+        "tole": null,
+        "temple": null,
+        "geo": null
+      },
+      "current_location": {
+        "institution": "Cleveland Museum of Art",
+        "accession": "1978.89",
+        "url": "https://clevelandart.org/art/1978.89",
+        "country": "United States"
+      },
+      "provenance_notes": "Ingested from CMA Open Access API (CC0). Catalog presence is not a LAoN determination of illicit origin.",
+      "theft_date": null,
+      "sources": [
+        {
+          "label": "Cleveland Museum of Art Open Access",
+          "url": "https://clevelandart.org/art/1978.89",
+          "citation": "Cleveland Museum of Art. Royal Female Donor (1978.89)."
+        }
+      ],
+      "images": [
+        {
+          "url": "https://openaccess-cdn.clevelandart.org/1978.89/1978.89_web.jpg",
+          "type": "museum",
+          "license": "CC0",
+          "attribution": "Cleveland Museum of Art",
+          "source_url": "https://clevelandart.org/art/1978.89",
+          "visibility": "public"
+        }
+      ],
+      "match_links": []
+    },
+    {
+      "id": "cma-140439",
+      "titles": [
+        "Bodhisattva of Wisdom (Manjushri)"
+      ],
+      "culture": "Nepal",
+      "period": "1400s",
+      "material": "Gilt bronze with precious and semiprecious stones, gum tempera, and cold gold",
+      "dimensions": "Overall: 78.1 x 67.6 cm (30 3/4 x 26 5/8 in.)",
+      "iconography_tags": [],
+      "status": "museum",
+      "original_site": {
+        "place": "Nepal",
+        "tole": null,
+        "temple": null,
+        "geo": null
+      },
+      "current_location": {
+        "institution": "Cleveland Museum of Art",
+        "accession": "1964.370",
+        "url": "https://clevelandart.org/art/1964.370",
+        "country": "United States"
+      },
+      "provenance_notes": "Ingested from CMA Open Access API (CC0). Catalog presence is not a LAoN determination of illicit origin.",
+      "theft_date": null,
+      "sources": [
+        {
+          "label": "Cleveland Museum of Art Open Access",
+          "url": "https://clevelandart.org/art/1964.370",
+          "citation": "Cleveland Museum of Art. Bodhisattva of Wisdom (Manjushri) (1964.370)."
+        }
+      ],
+      "images": [
+        {
+          "url": "https://openaccess-cdn.clevelandart.org/1964.370/1964.370_web.jpg",
+          "type": "museum",
+          "license": "CC0",
+          "attribution": "Cleveland Museum of Art",
+          "source_url": "https://clevelandart.org/art/1964.370",
+          "visibility": "public"
+        }
+      ],
+      "match_links": []
+    },
+    {
+      "id": "cma-94681",
+      "titles": [
+        "Pair of Deity Earrings with Vishnu on Garuda (front) and chepu (monster mask) (back)"
+      ],
+      "culture": "Nepal, Kathmandu Valley",
+      "period": "1600s or 1700s",
+      "material": "Gold set with precious and semi-precious stones",
+      "dimensions": "Overall: 9.5 x 6.9 cm (3 3/4 x 2 11/16 in.)",
+      "iconography_tags": [],
+      "status": "museum",
+      "original_site": {
+        "place": "Nepal",
+        "tole": null,
+        "temple": null,
+        "geo": null
+      },
+      "current_location": {
+        "institution": "Cleveland Museum of Art",
+        "accession": "1915.338",
+        "url": "https://clevelandart.org/art/1915.338",
+        "country": "United States"
+      },
+      "provenance_notes": "Ingested from CMA Open Access API (CC0). Catalog presence is not a LAoN determination of illicit origin.",
+      "theft_date": null,
+      "sources": [
+        {
+          "label": "Cleveland Museum of Art Open Access",
+          "url": "https://clevelandart.org/art/1915.338",
+          "citation": "Cleveland Museum of Art. Pair of Deity Earrings with Vishnu on Garuda (front) and chepu (monster mask) (back) (1915.338)."
+        }
+      ],
+      "images": [
+        {
+          "url": "https://openaccess-cdn.clevelandart.org/1915.338/1915.338_web.jpg",
+          "type": "museum",
+          "license": "CC0",
+          "attribution": "Cleveland Museum of Art",
+          "source_url": "https://clevelandart.org/art/1915.338",
+          "visibility": "public"
+        }
+      ],
+      "match_links": []
+    },
+    {
+      "id": "cma-151000",
+      "titles": [
+        "Goddess Uma"
+      ],
+      "culture": "Nepal",
+      "period": "1000s",
+      "material": "gilt bronze and semiprecious stones",
+      "dimensions": "Overall: 35.6 x 27.9 x 25.4 cm (14 x 11 x 10 in.)",
+      "iconography_tags": [],
+      "status": "museum",
+      "original_site": {
+        "place": "Nepal",
+        "tole": null,
+        "temple": null,
+        "geo": null
+      },
+      "current_location": {
+        "institution": "Cleveland Museum of Art",
+        "accession": "1982.49",
+        "url": "https://clevelandart.org/art/1982.49",
+        "country": "United States"
+      },
+      "provenance_notes": "Ingested from CMA Open Access API (CC0). Catalog presence is not a LAoN determination of illicit origin.",
+      "theft_date": null,
+      "sources": [
+        {
+          "label": "Cleveland Museum of Art Open Access",
+          "url": "https://clevelandart.org/art/1982.49",
+          "citation": "Cleveland Museum of Art. Goddess Uma (1982.49)."
+        }
+      ],
+      "images": [
+        {
+          "url": "https://openaccess-cdn.clevelandart.org/1982.49/1982.49_web.jpg",
+          "type": "museum",
+          "license": "CC0",
+          "attribution": "Cleveland Museum of Art",
+          "source_url": "https://clevelandart.org/art/1982.49",
+          "visibility": "public"
+        }
+      ],
+      "match_links": []
+    },
+    {
+      "id": "cma-133068",
+      "titles": [
+        "Seven Leaves from a Manuscript of the Gandavyuha-sutra (Scripture of the Supreme Array)"
+      ],
+      "culture": "Nepal",
+      "period": "1000s-1100s",
+      "material": "Gum tempera and ink on palm leaves",
+      "dimensions": "Overall: 4.2 x 52.4 cm (1 5/8 x 20 5/8 in.)",
+      "iconography_tags": [],
+      "status": "museum",
+      "original_site": {
+        "place": "Nepal",
+        "tole": null,
+        "temple": null,
+        "geo": null
+      },
+      "current_location": {
+        "institution": "Cleveland Museum of Art",
+        "accession": "1955.49",
+        "url": "https://clevelandart.org/art/1955.49",
+        "country": "United States"
+      },
+      "provenance_notes": "Ingested from CMA Open Access API (CC0). Catalog presence is not a LAoN determination of illicit origin.",
+      "theft_date": null,
+      "sources": [
+        {
+          "label": "Cleveland Museum of Art Open Access",
+          "url": "https://clevelandart.org/art/1955.49",
+          "citation": "Cleveland Museum of Art. Seven Leaves from a Manuscript of the Gandavyuha-sutra (Scripture of the Supreme Array) (1955.49)."
+        }
+      ],
+      "images": [
+        {
+          "url": "https://openaccess-cdn.clevelandart.org/1955.49/1955.49_web.jpg",
+          "type": "museum",
+          "license": "CC0",
+          "attribution": "Cleveland Museum of Art",
+          "source_url": "https://clevelandart.org/art/1955.49",
+          "visibility": "public"
+        }
+      ],
+      "match_links": []
+    },
+    {
+      "id": "cma-140094",
+      "titles": [
+        "Goddess Vajravarahi"
+      ],
+      "culture": "Nepal",
+      "period": "c. 1040–c. 1310",
+      "material": "unbaked clay and pigment",
+      "dimensions": "Overall: 63.5 cm (25 in.)",
+      "iconography_tags": [],
+      "status": "museum",
+      "original_site": {
+        "place": "Nepal",
+        "tole": null,
+        "temple": null,
+        "geo": null
+      },
+      "current_location": {
+        "institution": "Cleveland Museum of Art",
+        "accession": "1964.103",
+        "url": "https://clevelandart.org/art/1964.103",
+        "country": "United States"
+      },
+      "provenance_notes": "Ingested from CMA Open Access API (CC0). Catalog presence is not a LAoN determination of illicit origin.",
+      "theft_date": null,
+      "sources": [
+        {
+          "label": "Cleveland Museum of Art Open Access",
+          "url": "https://clevelandart.org/art/1964.103",
+          "citation": "Cleveland Museum of Art. Goddess Vajravarahi (1964.103)."
+        }
+      ],
+      "images": [
+        {
+          "url": "https://openaccess-cdn.clevelandart.org/1964.103/1964.103_web.jpg",
+          "type": "museum",
+          "license": "CC0",
+          "attribution": "Cleveland Museum of Art",
+          "source_url": "https://clevelandart.org/art/1964.103",
+          "visibility": "public"
+        }
+      ],
+      "match_links": []
+    },
+    {
+      "id": "cma-134346",
+      "titles": [
+        "Bodhisattva of Wisdom (Manjushri)"
+      ],
+      "culture": "Nepal",
+      "period": "1400s",
+      "material": "gilded copper",
+      "dimensions": "Overall: 42.4 x 16.5 cm (16 11/16 x 6 1/2 in.)",
+      "iconography_tags": [],
+      "status": "museum",
+      "original_site": {
+        "place": "Nepal",
+        "tole": null,
+        "temple": null,
+        "geo": null
+      },
+      "current_location": {
+        "institution": "Cleveland Museum of Art",
+        "accession": "1956.8",
+        "url": "https://clevelandart.org/art/1956.8",
+        "country": "United States"
+      },
+      "provenance_notes": "Ingested from CMA Open Access API (CC0). Catalog presence is not a LAoN determination of illicit origin.",
+      "theft_date": null,
+      "sources": [
+        {
+          "label": "Cleveland Museum of Art Open Access",
+          "url": "https://clevelandart.org/art/1956.8",
+          "citation": "Cleveland Museum of Art. Bodhisattva of Wisdom (Manjushri) (1956.8)."
+        }
+      ],
+      "images": [
+        {
+          "url": "https://openaccess-cdn.clevelandart.org/1956.8/1956.8_web.jpg",
+          "type": "museum",
+          "license": "CC0",
+          "attribution": "Cleveland Museum of Art",
+          "source_url": "https://clevelandart.org/art/1956.8",
+          "visibility": "public"
+        }
+      ],
+      "match_links": []
+    },
+    {
+      "id": "cma-94773",
+      "titles": [
+        "Pendant with Four-armed Green Vishnu on a lotus with Nagas"
+      ],
+      "culture": "Nepal, Kathmandu Valley",
+      "period": "1600s or 1700s",
+      "material": "Gold set with precious and semiprecious stones",
+      "dimensions": "Overall: 7.2 x 5.8 cm (2 13/16 x 2 5/16 in.)",
+      "iconography_tags": [],
+      "status": "museum",
+      "original_site": {
+        "place": "Nepal",
+        "tole": null,
+        "temple": null,
+        "geo": null
+      },
+      "current_location": {
+        "institution": "Cleveland Museum of Art",
+        "accession": "1915.340",
+        "url": "https://clevelandart.org/art/1915.340",
+        "country": "United States"
+      },
+      "provenance_notes": "Ingested from CMA Open Access API (CC0). Catalog presence is not a LAoN determination of illicit origin.",
+      "theft_date": null,
+      "sources": [
+        {
+          "label": "Cleveland Museum of Art Open Access",
+          "url": "https://clevelandart.org/art/1915.340",
+          "citation": "Cleveland Museum of Art. Pendant with Four-armed Green Vishnu on a lotus with Nagas (1915.340)."
+        }
+      ],
+      "images": [
+        {
+          "url": "https://openaccess-cdn.clevelandart.org/1915.340/1915.340_web.jpg",
+          "type": "museum",
+          "license": "CC0",
+          "attribution": "Cleveland Museum of Art",
+          "source_url": "https://clevelandart.org/art/1915.340",
+          "visibility": "public"
+        }
+      ],
+      "match_links": []
+    },
+    {
+      "id": "cma-149361",
+      "titles": [
+        "Bodhisattva of Compassion, Avalokiteshvara Padmapani"
+      ],
+      "culture": "Nepal",
+      "period": "1674",
+      "material": "stone",
+      "dimensions": "Overall: 46.3 x 23 cm (18 1/4 x 9 1/16 in.)",
+      "iconography_tags": [],
+      "status": "museum",
+      "original_site": {
+        "place": "Nepal",
+        "tole": null,
+        "temple": null,
+        "geo": null
+      },
+      "current_location": {
+        "institution": "Cleveland Museum of Art",
+        "accession": "1978.24",
+        "url": "https://clevelandart.org/art/1978.24",
+        "country": "United States"
+      },
+      "provenance_notes": "Ingested from CMA Open Access API (CC0). Catalog presence is not a LAoN determination of illicit origin.",
+      "theft_date": null,
+      "sources": [
+        {
+          "label": "Cleveland Museum of Art Open Access",
+          "url": "https://clevelandart.org/art/1978.24",
+          "citation": "Cleveland Museum of Art. Bodhisattva of Compassion, Avalokiteshvara Padmapani (1978.24)."
+        }
+      ],
+      "images": [
+        {
+          "url": "https://openaccess-cdn.clevelandart.org/1978.24/1978.24_web.jpg",
+          "type": "museum",
+          "license": "CC0",
+          "attribution": "Cleveland Museum of Art",
+          "source_url": "https://clevelandart.org/art/1978.24",
+          "visibility": "public"
+        }
+      ],
+      "match_links": []
+    },
+    {
+      "id": "cma-94780",
+      "titles": [
+        "Pair of Earrings with Four-Armed Vishnu Riding Garuda with Nagas (serpent divinities)"
+      ],
+      "culture": "Nepal, Kathmandu Valley",
+      "period": "1600s or 1700s",
+      "material": "repousse gold with pearls",
+      "dimensions": {},
+      "iconography_tags": [],
+      "status": "museum",
+      "original_site": {
+        "place": "Nepal",
+        "tole": null,
+        "temple": null,
+        "geo": null
+      },
+      "current_location": {
+        "institution": "Cleveland Museum of Art",
+        "accession": "1915.346",
+        "url": "https://clevelandart.org/art/1915.346",
+        "country": "United States"
+      },
+      "provenance_notes": "Ingested from CMA Open Access API (CC0). Catalog presence is not a LAoN determination of illicit origin.",
+      "theft_date": null,
+      "sources": [
+        {
+          "label": "Cleveland Museum of Art Open Access",
+          "url": "https://clevelandart.org/art/1915.346",
+          "citation": "Cleveland Museum of Art. Pair of Earrings with Four-Armed Vishnu Riding Garuda with Nagas (serpent divinities) (1915.346)."
+        }
+      ],
+      "images": [
+        {
+          "url": "https://openaccess-cdn.clevelandart.org/1915.346/1915.346_web.jpg",
+          "type": "museum",
+          "license": "CC0",
+          "attribution": "Cleveland Museum of Art",
+          "source_url": "https://clevelandart.org/art/1915.346",
+          "visibility": "public"
+        }
+      ],
+      "match_links": []
+    },
+    {
+      "id": "cma-94781",
+      "titles": [
+        "Earring with Four-Armed Vishnu Riding Garuda with Nagas (serpent divinities)"
+      ],
+      "culture": "Nepal, Kathmandu Valley",
+      "period": "1600s or 1700s",
+      "material": "repousse gold with pearls",
+      "dimensions": "Overall: 3.6 cm (1 7/16 in.)",
+      "iconography_tags": [],
+      "status": "museum",
+      "original_site": {
+        "place": "Nepal",
+        "tole": null,
+        "temple": null,
+        "geo": null
+      },
+      "current_location": {
+        "institution": "Cleveland Museum of Art",
+        "accession": "1915.346.1",
+        "url": "https://clevelandart.org/art/1915.346.1",
+        "country": "United States"
+      },
+      "provenance_notes": "Ingested from CMA Open Access API (CC0). Catalog presence is not a LAoN determination of illicit origin.",
+      "theft_date": null,
+      "sources": [
+        {
+          "label": "Cleveland Museum of Art Open Access",
+          "url": "https://clevelandart.org/art/1915.346.1",
+          "citation": "Cleveland Museum of Art. Earring with Four-Armed Vishnu Riding Garuda with Nagas (serpent divinities) (1915.346.1)."
+        }
+      ],
+      "images": [
+        {
+          "url": "https://openaccess-cdn.clevelandart.org/1915.346.1/1915.346.1_web.jpg",
+          "type": "museum",
+          "license": "CC0",
+          "attribution": "Cleveland Museum of Art",
+          "source_url": "https://clevelandart.org/art/1915.346.1",
+          "visibility": "public"
+        }
+      ],
+      "match_links": []
+    },
+    {
+      "id": "cma-147569",
+      "titles": [
+        "Bejeweled Buddha Preaching"
+      ],
+      "culture": "Nepal",
+      "period": "1648",
+      "material": "Gum tempera, ink, and gold on cloth",
+      "dimensions": "Overall: 109.5 x 82.5 cm (43 1/8 x 32 1/2 in.)",
+      "iconography_tags": [],
+      "status": "museum",
+      "original_site": {
+        "place": "Nepal",
+        "tole": null,
+        "temple": null,
+        "geo": null
+      },
+      "current_location": {
+        "institution": "Cleveland Museum of Art",
+        "accession": "1973.69",
+        "url": "https://clevelandart.org/art/1973.69",
+        "country": "United States"
+      },
+      "provenance_notes": "Ingested from CMA Open Access API (CC0). Catalog presence is not a LAoN determination of illicit origin.",
+      "theft_date": null,
+      "sources": [
+        {
+          "label": "Cleveland Museum of Art Open Access",
+          "url": "https://clevelandart.org/art/1973.69",
+          "citation": "Cleveland Museum of Art. Bejeweled Buddha Preaching (1973.69)."
+        }
+      ],
+      "images": [
+        {
+          "url": "https://openaccess-cdn.clevelandart.org/1973.69/1973.69_web.jpg",
+          "type": "museum",
+          "license": "CC0",
+          "attribution": "Cleveland Museum of Art",
+          "source_url": "https://clevelandart.org/art/1973.69",
+          "visibility": "public"
+        }
+      ],
+      "match_links": []
+    },
+    {
+      "id": "cma-94782",
+      "titles": [
+        "Earring with Four-Armed Vishnu Riding Garuda with Nagas (serpent divinities)"
+      ],
+      "culture": "Nepal, Kathmandu Valley",
+      "period": "1600s or 1700s",
+      "material": "repousse gold with pearls",
+      "dimensions": "Overall: 3.7 cm (1 7/16 in.)",
+      "iconography_tags": [],
+      "status": "museum",
+      "original_site": {
+        "place": "Nepal",
+        "tole": null,
+        "temple": null,
+        "geo": null
+      },
+      "current_location": {
+        "institution": "Cleveland Museum of Art",
+        "accession": "1915.346.2",
+        "url": "https://clevelandart.org/art/1915.346.2",
+        "country": "United States"
+      },
+      "provenance_notes": "Ingested from CMA Open Access API (CC0). Catalog presence is not a LAoN determination of illicit origin.",
+      "theft_date": null,
+      "sources": [
+        {
+          "label": "Cleveland Museum of Art Open Access",
+          "url": "https://clevelandart.org/art/1915.346.2",
+          "citation": "Cleveland Museum of Art. Earring with Four-Armed Vishnu Riding Garuda with Nagas (serpent divinities) (1915.346.2)."
+        }
+      ],
+      "images": [
+        {
+          "url": "https://openaccess-cdn.clevelandart.org/1915.346.2/1915.346.2_web.jpg",
+          "type": "museum",
+          "license": "CC0",
+          "attribution": "Cleveland Museum of Art",
+          "source_url": "https://clevelandart.org/art/1915.346.2",
+          "visibility": "public"
+        }
+      ],
+      "match_links": []
+    },
+    {
+      "id": "cma-117657",
+      "titles": [
+        "Manuscript of the Perfection of Wisdom in Eight Thousand Lines (Ashtasahasrika Prajnaparamita-sutra)"
+      ],
+      "culture": "Eastern India, Bihar, Vikramashila Monastery. Paintings: Nepal, Kathmandu",
+      "period": "Sunday, September 14, 1119 (year 239 of the Newar Samvat in the month of Ashvina)",
+      "material": "Covers: Gum tempera, colors, and paper on wood; pages: gum tempera and ink on palm leaves",
+      "dimensions": "Covers overall: 6.5 x 57 x 1.5 cm (2 9/16 x 22 7/16 x 9/16 in.)",
+      "iconography_tags": [],
+      "status": "museum",
+      "original_site": {
+        "place": "Nepal",
+        "tole": null,
+        "temple": null,
+        "geo": null
+      },
+      "current_location": {
+        "institution": "Cleveland Museum of Art",
+        "accession": "1938.301",
+        "url": "https://clevelandart.org/art/1938.301",
+        "country": "United States"
+      },
+      "provenance_notes": "Ingested from CMA Open Access API (CC0). Catalog presence is not a LAoN determination of illicit origin.",
+      "theft_date": null,
+      "sources": [
+        {
+          "label": "Cleveland Museum of Art Open Access",
+          "url": "https://clevelandart.org/art/1938.301",
+          "citation": "Cleveland Museum of Art. Manuscript of the Perfection of Wisdom in Eight Thousand Lines (Ashtasahasrika Prajnaparamita-sutra) (1938.301)."
+        }
+      ],
+      "images": [
+        {
+          "url": "https://openaccess-cdn.clevelandart.org/1938.301/1938.301_web.jpg",
+          "type": "museum",
+          "license": "CC0",
+          "attribution": "Cleveland Museum of Art",
+          "source_url": "https://clevelandart.org/art/1938.301",
+          "visibility": "public"
+        }
+      ],
+      "match_links": []
+    },
+    {
+      "id": "cma-151960",
+      "titles": [
+        "Kubjika–Navatman"
+      ],
+      "culture": "Nepal",
+      "period": "1300s",
+      "material": "Gilt bronze with semiprecious stones",
+      "dimensions": "Overall: 29.8 x 27.2 cm (11 3/4 x 10 11/16 in.); with base: 32.6 cm (12 13/16 in.)",
+      "iconography_tags": [],
+      "status": "museum",
+      "original_site": {
+        "place": "Nepal",
+        "tole": null,
+        "temple": null,
+        "geo": null
+      },
+      "current_location": {
+        "institution": "Cleveland Museum of Art",
+        "accession": "1984.3",
+        "url": "https://clevelandart.org/art/1984.3",
+        "country": "United States"
+      },
+      "provenance_notes": "Ingested from CMA Open Access API (CC0). Catalog presence is not a LAoN determination of illicit origin.",
+      "theft_date": null,
+      "sources": [
+        {
+          "label": "Cleveland Museum of Art Open Access",
+          "url": "https://clevelandart.org/art/1984.3",
+          "citation": "Cleveland Museum of Art. Kubjika–Navatman (1984.3)."
+        }
+      ],
+      "images": [
+        {
+          "url": "https://openaccess-cdn.clevelandart.org/1984.3/1984.3_web.jpg",
+          "type": "museum",
+          "license": "CC0",
+          "attribution": "Cleveland Museum of Art",
+          "source_url": "https://clevelandart.org/art/1984.3",
+          "visibility": "public"
+        }
+      ],
+      "match_links": []
+    }
+  ]
+}

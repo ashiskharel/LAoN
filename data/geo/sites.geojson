@@ -1,0 +1,59 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Patko Tole (Patan)",
+        "object_ids": ["patko-laxmi-narayan"],
+        "note": "Laxmi-Narayan return / original site"
+      },
+      "geometry": { "type": "Point", "coordinates": [85.325, 27.673] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Yampi Mahavihara (Patan)",
+        "object_ids": ["rubin-yampi-carving"],
+        "note": "Documented original context for returned wood carving"
+      },
+      "geometry": { "type": "Point", "coordinates": [85.325, 27.676] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Itum Bahal (Kathmandu)",
+        "object_ids": ["rubin-itum-apsara"],
+        "note": "Documented original context for returned apsara"
+      },
+      "geometry": { "type": "Point", "coordinates": [85.308, 27.707] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Saugal (Patan)",
+        "object_ids": ["seed-surya-saugal-type"],
+        "note": "Bangdel-documented Surya theft cluster"
+      },
+      "geometry": { "type": "Point", "coordinates": [85.3265, 27.6735] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Kumbhesvara area (Patan)",
+        "object_ids": ["seed-empty-niche-kumbhesvara"],
+        "note": "Multiple documented losses / empty niches"
+      },
+      "geometry": { "type": "Point", "coordinates": [85.326, 27.679] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Changu Narayan",
+        "object_ids": ["seed-changu-visnu-type"],
+        "note": "Documented Visnu and related losses"
+      },
+      "geometry": { "type": "Point", "coordinates": [85.4279, 27.7163] }
+    }
+  ]
+}
