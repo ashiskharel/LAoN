@@ -47,7 +47,19 @@ export type MatchResult = {
   score: number;
   method: string;
   matched_image_url?: string | null;
+  confidence?: string | null;
+  confidence_note?: string | null;
 };
+
+export function confidenceLabel(c?: string | null): string {
+  const map: Record<string, string> = {
+    high: "Higher confidence",
+    medium: "Medium confidence",
+    low: "Low confidence",
+    uncertain: "Uncertain — not a match",
+  };
+  return (c && map[c]) || "Unscored";
+}
 
 export type CropInfo = {
   method: string;

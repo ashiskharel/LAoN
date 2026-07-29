@@ -78,6 +78,8 @@ class MatchResult(BaseModel):
     score: float
     method: str
     matched_image_url: Optional[str] = None
+    confidence: Optional[str] = None  # high | medium | low | uncertain
+    confidence_note: Optional[str] = None
 
 
 class CropInfo(BaseModel):

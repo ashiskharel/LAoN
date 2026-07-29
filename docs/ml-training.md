@@ -20,6 +20,29 @@ User photo
 
 Google ML Kit (or Core ML) can be a **later export target** (TFLite) once you have a trained ONNX/YOLO model — not the training framework.
 
+## Phase 2 — Visual match quality (shipped)
+
+| Piece | Status |
+|---|---|
+| Crop before match | ML-0 |
+| Embedding index | `scripts/embed_corpus.py` (`--method simple` default) |
+| Optional OpenCLIP | `pip install sentence-transformers` then `embed_corpus.py --method openclip` |
+| Confidence tiers | API `confidence`: high / medium / low / uncertain |
+| Side-by-side UI | Match page + visitor camera results |
+| Eval harness | `scripts/eval_match.py` + `data/eval/pairs.example.json` |
+
+```bash
+# Default cheap index
+python scripts/embed_corpus.py
+
+# Stronger (downloads CLIP weights once)
+pip install sentence-transformers
+python scripts/embed_corpus.py --method openclip
+
+# Measure self-match on example pair
+python scripts/eval_match.py
+```
+
 ## ML-0 — Zero-train crop (shipped in API)
 
 `services/api/app/preprocess.py`:
