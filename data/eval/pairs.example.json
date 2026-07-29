@@ -1,0 +1,11 @@
+{
+  "description": "Gold pairs for visual search evaluation. query_image is a local path or URL; expected_object_id is a catalog id. Copy to pairs.json (gitignored if private).",
+  "pairs": [
+    {
+      "id": "example-cma-varahi-self",
+      "query_image": "https://openaccess-cdn.clevelandart.org/1978.70/1978.70_web.jpg",
+      "expected_object_id": "cma-1978-70",
+      "note": "Self-match: query is the same public CMA image as the catalog entry"
+    }
+  ]
+}

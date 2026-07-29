@@ -125,8 +125,15 @@ Native wrappers (Expo / Capacitor) can come later if store distribution is requi
 | Phase | What | Cost |
 |---|---|---|
 | **ML-0** | Crop artifact before match (`edge_saliency` always; optional `rembg`) | $0 |
+| **Phase 2 match** | Confidence tiers + side-by-side; optional OpenCLIP embeddings | $0 |
 | **ML-1** | Community YOLO `artifact` train on free Colab GPU | $0 |
 | **ML-2** | Fine iconography classes (later) | Volunteer labels |
+
+```bash
+python scripts/embed_corpus.py                 # simple features
+python scripts/embed_corpus.py --method openclip  # stronger (optional deps)
+python scripts/eval_match.py                   # precision@k harness
+```
 
 - Guide: [docs/ml-training.md](docs/ml-training.md)
 - Train notebook: [ml/notebooks/train_yolo_colab.ipynb](ml/notebooks/train_yolo_colab.ipynb)

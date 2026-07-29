@@ -2,11 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import {
-  matchImage,
-  statusLabel,
-  type MatchResponse,
-} from "@/lib/api";
+import { matchImage, type MatchResponse } from "@/lib/api";
+import MatchCompare from "@/components/MatchCompare";
 
 type Mode = "camera" | "preview" | "results";
 
@@ -231,55 +228,11 @@ export default function VisitorCamera() {
               New photo
             </button>
           </div>
-
-          <p className="meta">{result.disclaimer}</p>
-
-          {result.crop?.preview_jpeg_b64 && (
-            <div className="panel">
-              <div className="meta">Focused region · {result.crop.method}</div>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={`data:image/jpeg;base64,${result.crop.preview_jpeg_b64}`}
-                alt="Crop used for matching"
-                className="visitor-crop-preview"
-              />
-            </div>
-          )}
-
-          <h2>Possible matches</h2>
-          {result.results.length === 0 ? (
-            <p className="empty">
-              No strong image matches yet. Try a closer photo of the sculpture
-              alone, or browse the{" "}
-              <Link href="/catalog">catalog</Link>.
-            </p>
-          ) : (
-            <ul className="visitor-match-list">
-              {result.results.map((r) => {
-                const thumb =
-                  r.matched_image_url || r.object.images?.[0]?.url || null;
-                return (
-                  <li key={r.object.id}>
-                    <Link href={`/objects/${r.object.id}`} className="visitor-match-card">
-                      {thumb ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img src={thumb} alt="" />
-                      ) : (
-                        <div className="visitor-match-placeholder" />
-                      )}
-                      <div>
-                        <strong>{r.object.titles[0]}</strong>
-                        <div className="meta">
-                          {statusLabel(r.object.status)} ·{" "}
-                          {(r.score * 100).toFixed(0)}% similar
-                        </div>
-                      </div>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
+          <MatchCompare queryPreviewUrl={previewUrl} result={result} />
+          <p className="meta" style={{ marginTop: "0.75rem" }}>
+            Prefer closer shots of the sculpture alone. Browse the{" "}
+            <Link href="/catalog">catalog</Link> for text search.
+          </p>
         </div>
       )}
 

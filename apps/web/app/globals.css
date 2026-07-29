@@ -711,6 +711,104 @@ body:has(.visit-shell) {
   background: #0a0e0b;
 }
 
+/* Match confidence + side-by-side */
+.compare-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.compare-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.compare-card.tier-uncertain {
+  opacity: 0.75;
+}
+
+.compare-side-by-side {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--border);
+}
+
+.compare-cell {
+  background: #121814;
+  padding: 0.4rem;
+}
+
+.compare-cell img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+.compare-placeholder {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.compare-meta {
+  padding: 0.85rem 1rem 1rem;
+}
+
+.compare-meta h3 {
+  margin: 0.35rem 0 0.15rem;
+  font-size: 1.05rem;
+}
+
+.compare-check {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.compare-query-img {
+  max-height: 200px;
+  max-width: 100%;
+  border-radius: 8px;
+  margin-top: 0.4rem;
+  object-fit: contain;
+  background: #121814;
+}
+
+.badge.confidence-high {
+  background: rgba(111, 191, 138, 0.18);
+  color: var(--ok);
+}
+
+.badge.confidence-medium {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.badge.confidence-low {
+  background: rgba(200, 160, 80, 0.15);
+  color: #d4b06a;
+}
+
+.badge.confidence-uncertain {
+  background: var(--danger-soft);
+  color: #e09a9a;
+}
+
+.confidence-note {
+  margin: 0.4rem 0 0;
+}
+
 /* Research capture */
 .research-form label {
   display: flex;

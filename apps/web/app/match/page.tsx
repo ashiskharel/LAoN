@@ -1,13 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import {
-  matchImage,
-  buildReport,
-  statusLabel,
-  type MatchResponse,
-} from "@/lib/api";
+import { matchImage, buildReport, type MatchResponse } from "@/lib/api";
+import MatchCompare from "@/components/MatchCompare";
 
 export default function MatchPage() {
   const [preview, setPreview] = useState<string | null>(null);
@@ -36,7 +31,11 @@ export default function MatchPage() {
     try {
       const res = await matchImage(file);
       setResult(res);
-      setSelected(res.results.slice(0, 3).map((r) => r.object.id));
+      // Default-select medium+ confidence only
+      const pick = res.results
+        .filter((r) => r.confidence === "high" || r.confidence === "medium")
+        .map((r) => r.object.id);
+      setSelected(pick.length ? pick : res.results.slice(0, 2).map((r) => r.object.id));
     } catch (e) {
       setError(e instanceof Error ? e.message : "Match failed");
     } finally {
@@ -56,7 +55,7 @@ export default function MatchPage() {
       const res = await buildReport({
         query_description: file?.name || "User photo",
         match_object_ids: selected,
-        notes: "Generated from LAoN match UI",
+        notes: "Generated from LAoN match UI (Phase 2 confidence tiers)",
       });
       const text = JSON.stringify(res, null, 2);
       setReportJson(text);
@@ -76,9 +75,9 @@ export default function MatchPage() {
     <>
       <h1>Match a photo</h1>
       <p className="lead">
-        Upload a photo of a sculpture (museum gallery, phone snapshot, or scan).
-        LAoN ranks possible visual matches from the public catalog. Scores are
-        approximate — always verify with specialists.
+        Upload a sculpture photo. LAoN crops the subject, ranks catalog
+        candidates, and labels confidence. Scores are approximate — always
+        verify with specialists.
       </p>
 
       <div className="panel">
@@ -100,7 +99,7 @@ export default function MatchPage() {
             <div>
               <strong>Tap to take or choose a photo</strong>
               <p className="meta" style={{ margin: "0.5rem 0 0" }}>
-                JPEG/PNG/WebP · max 12MB
+                Prefer the visitor camera at /visit on phones
               </p>
             </div>
           )}
@@ -125,86 +124,21 @@ export default function MatchPage() {
 
       {result && (
         <>
-          <p className="meta">{result.disclaimer}</p>
-          <p className="meta">{result.query_note}</p>
-
-          {result.crop?.preview_jpeg_b64 && (
-            <div className="panel">
-              <h2 style={{ marginTop: 0 }}>Focused region (ML crop)</h2>
-              <p className="meta">
-                Method: <strong>{result.crop.method}</strong>
-                {result.crop.note ? ` — ${result.crop.note}` : ""}
-              </p>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={`data:image/jpeg;base64,${result.crop.preview_jpeg_b64}`}
-                alt="Cropped region used for matching"
-                style={{
-                  maxHeight: 280,
-                  maxWidth: "100%",
-                  borderRadius: 8,
-                  marginTop: "0.5rem",
-                }}
-              />
-              <p className="meta" style={{ marginTop: "0.5rem" }}>
-                Cropping helps ignore glass cases and room background. It does
-                not identify the object by itself.
-              </p>
-            </div>
-          )}
-
-          <h2>Results</h2>
-          {result.results.length === 0 ? (
-            <p className="empty">
-              No scored image matches yet. The seed catalog may need more public
-              museum images — run ingest scripts, then{" "}
-              <code>embed_corpus.py</code>.
-            </p>
-          ) : (
-            <div className="panel" style={{ paddingTop: 0, paddingBottom: 0 }}>
-              {result.results.map((r) => {
-                const thumb =
-                  r.matched_image_url || r.object.images?.[0]?.url || null;
-                return (
-                  <div className="match-row" key={r.object.id}>
-                    {thumb ? (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img src={thumb} alt="" />
-                    ) : (
-                      <div
-                        style={{
-                          width: 88,
-                          height: 88,
-                          background: "#121814",
-                          borderRadius: 8,
-                        }}
-                      />
-                    )}
-                    <div>
-                      <label style={{ display: "flex", gap: "0.5rem", alignItems: "flex-start" }}>
-                        <input
-                          type="checkbox"
-                          checked={selected.includes(r.object.id)}
-                          onChange={() => toggle(r.object.id)}
-                        />
-                        <span>
-                          <Link href={`/objects/${r.object.id}`}>
-                            {r.object.titles[0]}
-                          </Link>
-                          <div className="meta">
-                            {statusLabel(r.object.status)} · {r.method}
-                          </div>
-                        </span>
-                      </label>
-                    </div>
-                    <div className="score">{(r.score * 100).toFixed(1)}%</div>
-                  </div>
-                );
-              })}
-            </div>
-          )}
-
-          <div style={{ marginTop: "1rem", display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
+          <MatchCompare
+            queryPreviewUrl={preview}
+            result={result}
+            selectable
+            selected={selected}
+            onToggle={toggle}
+          />
+          <div
+            style={{
+              marginTop: "1rem",
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "0.75rem",
+            }}
+          >
             <button
               type="button"
               disabled={!selected.length}
@@ -214,8 +148,8 @@ export default function MatchPage() {
             </button>
           </div>
           <p className="meta" style={{ marginTop: "0.75rem" }}>
-            The report is for you to share with experts or authorities you trust.
-            It is not a legal filing.
+            Uncertain results are still listed for research — they are not
+            claims. The report is not a legal filing.
           </p>
           {reportJson && (
             <pre

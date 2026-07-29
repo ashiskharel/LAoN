@@ -1,48 +1,27 @@
-"""Visual similarity: optional precomputed embeddings + lightweight fallback."""
+"""Visual similarity: crop → embed → rank with confidence tiers."""
 
 from __future__ import annotations
 
-import io
 from pathlib import Path
 from typing import Optional
 
 import numpy as np
-from PIL import Image, ImageOps
 
-from .config import EMBEDDINGS_PATH, DISCLAIMER
+from .config import DISCLAIMER
 from .catalog import all_objects, get_object
+from .embeddings import (
+    confidence_for,
+    embed_image,
+    load_embedding_index,
+    simple_image_vector,
+)
 from .models import CropInfo, MatchResult, MatchResponse
 from .preprocess import crop_artifact
-
-
-def _load_embedding_index() -> Optional[dict]:
-    if not EMBEDDINGS_PATH.exists():
-        return None
-    data = np.load(EMBEDDINGS_PATH, allow_pickle=True)
-    return {
-        "ids": data["ids"].tolist(),
-        "vectors": data["vectors"].astype(np.float32),
-        "image_urls": data["image_urls"].tolist(),
-        "method": str(data["method"]) if "method" in data else "embedding",
-    }
 
 
 def _cosine_sim(a: np.ndarray, b: np.ndarray) -> float:
     denom = (np.linalg.norm(a) * np.linalg.norm(b)) + 1e-9
     return float(np.dot(a, b) / denom)
-
-
-def _simple_image_vector(image_bytes: bytes, size: int = 32) -> np.ndarray:
-    """Grayscale thumbnail histogram — weak but dependency-free fallback."""
-    img = Image.open(io.BytesIO(image_bytes))
-    img = ImageOps.exif_transpose(img)
-    img = img.convert("L").resize((size, size), Image.Resampling.LANCZOS)
-    arr = np.asarray(img, dtype=np.float32) / 255.0
-    # Flatten + coarse histogram for a bit more invariance
-    hist, _ = np.histogram(arr, bins=32, range=(0.0, 1.0), density=True)
-    vec = np.concatenate([arr.flatten(), hist.astype(np.float32)])
-    vec = vec / (np.linalg.norm(vec) + 1e-9)
-    return vec.astype(np.float32)
 
 
 def _load_url_bytes(url: str, cache_dir: Path) -> Optional[bytes]:
@@ -75,6 +54,41 @@ def _load_url_bytes(url: str, cache_dir: Path) -> Optional[bytes]:
         return None
 
 
+def _build_results(
+    scored: list[tuple[float, str, str, str]],
+    top_k: int,
+) -> list[MatchResult]:
+    """scored: (score, object_id, image_url, method) sorted desc."""
+    results: list[MatchResult] = []
+    seen: set[str] = set()
+    for i, (score, oid, url, method) in enumerate(scored):
+        if oid in seen:
+            continue
+        obj = get_object(oid)
+        if not obj:
+            continue
+        seen.add(oid)
+        next_score = None
+        for j in range(i + 1, len(scored)):
+            if scored[j][1] != oid:
+                next_score = scored[j][0]
+                break
+        tier, note = confidence_for(score, method, next_score)
+        results.append(
+            MatchResult(
+                object=obj,
+                score=round(score, 4),
+                method=method,
+                matched_image_url=url,
+                confidence=tier,
+                confidence_note=note,
+            )
+        )
+        if len(results) >= top_k:
+            break
+    return results
+
+
 def match_image(
     image_bytes: bytes,
     top_k: int = 8,
@@ -87,7 +101,6 @@ def match_image(
     cache = cache_dir or CACHE_DIR
     cache.mkdir(parents=True, exist_ok=True)
 
-    # ML-0: crop/focus artifact before embedding
     crop_res = crop_artifact(image_bytes, enabled=crop)
     query_bytes = crop_res.image_bytes if crop else image_bytes
     crop_info = CropInfo(
@@ -98,73 +111,66 @@ def match_image(
         preview_jpeg_b64=crop_res.preview_jpeg_b64,
         note=crop_res.note,
     )
-
-    index = _load_embedding_index()
-    query_note = ""
-    results: list[MatchResult] = []
     crop_prefix = f"Preprocess crop={crop_res.method}. "
 
+    index = load_embedding_index()
+    results: list[MatchResult] = []
+    query_note = ""
+
     if index is not None:
-        # Prefer precomputed vectors if query embedding method matches simple fallback
-        # For OpenCLIP index, operators re-embed queries with the same model offline.
-        # Here we still support simple vectors stored by embed_corpus.py fallback mode.
-        method = index.get("method", "embedding")
-        if method in ("simple_hist", "embedding", "openclip"):
-            if method == "openclip":
-                query_note = (
-                    crop_prefix
-                    + "Index was built with OpenCLIP; query uses simple features unless "
-                    "you re-run embed tooling for live OpenCLIP. Ranking may be weak."
-                )
-                q_vec = _simple_image_vector(query_bytes)
-            else:
-                q_vec = _simple_image_vector(query_bytes)
-                query_note = (
-                    crop_prefix
-                    + f"Ranking with {method} features against precomputed index."
-                )
-
-            # If dimensions mismatch (OpenCLIP vs simple), fall through to live simple
-            if q_vec.shape[0] == index["vectors"].shape[1]:
-                scores = index["vectors"] @ q_vec
-                order = np.argsort(-scores)[: top_k * 3]
-                seen: set[str] = set()
-                for i in order:
-                    oid = index["ids"][i]
-                    if oid in seen:
-                        continue
-                    obj = get_object(oid)
-                    if not obj:
-                        continue
-                    seen.add(oid)
-                    results.append(
-                        MatchResult(
-                            object=obj,
-                            score=round(float(scores[i]), 4),
-                            method=method,
-                            matched_image_url=index["image_urls"][i],
-                        )
+        method = index.get("method", "simple_hist")
+        q_vec = embed_image(query_bytes, method)
+        if q_vec.shape[0] == index["vectors"].shape[1]:
+            scores = index["vectors"] @ q_vec
+            order = np.argsort(-scores)
+            scored: list[tuple[float, str, str, str]] = []
+            for i in order:
+                scored.append(
+                    (
+                        float(scores[i]),
+                        index["ids"][i],
+                        index["image_urls"][i],
+                        method,
                     )
-                    if len(results) >= top_k:
-                        break
-                return MatchResponse(
-                    disclaimer=DISCLAIMER,
-                    query_note=query_note
-                    or (crop_prefix + "Visual match against embedding index."),
-                    results=results,
-                    crop=crop_info,
                 )
+            results = _build_results(scored, top_k)
+            if method in ("openclip", "clip", "dinov2", "dino"):
+                query_note = (
+                    crop_prefix
+                    + f"Ranking with {method} embeddings against precomputed index. "
+                    "Confidence tiers are research aids only."
+                )
+            else:
+                query_note = (
+                    crop_prefix
+                    + f"Ranking with {method} features against precomputed index. "
+                    "Install sentence-transformers and re-run embed_corpus.py "
+                    "--method openclip for stronger matching."
+                )
+            return MatchResponse(
+                disclaimer=DISCLAIMER,
+                query_note=query_note,
+                results=results,
+                crop=crop_info,
+            )
+        query_note = (
+            crop_prefix
+            + f"Index method={method} dim={index['vectors'].shape[1]} "
+            f"but query dim={q_vec.shape[0]} — falling back to live simple match. "
+            "Re-run scripts/embed_corpus.py with the same environment."
+        )
 
-    # Live simple similarity against public images in catalog
-    query_note = (
-        crop_prefix
-        + "No compatible embedding index found (or dimension mismatch). "
-        "Using live simple grayscale features on public catalog images. "
-        "Run scripts/embed_corpus.py after adding images for better results."
-    )
-    q_vec = _simple_image_vector(query_bytes)
-    scored: list[tuple[float, str, str]] = []
+    if not query_note:
+        query_note = (
+            crop_prefix
+            + "No embedding index found. Live simple features on public images. "
+            "Run: python scripts/embed_corpus.py"
+        )
+    else:
+        query_note += " Using live simple features."
 
+    q_vec = simple_image_vector(query_bytes)
+    scored_live: list[tuple[float, str, str, str]] = []
     for obj in all_objects():
         for img in obj.images:
             if img.visibility != "public":
@@ -173,37 +179,19 @@ def match_image(
             if not raw:
                 continue
             try:
-                v = _simple_image_vector(raw)
+                v = simple_image_vector(raw)
                 s = _cosine_sim(q_vec, v)
-                scored.append((s, obj.id, img.url))
+                scored_live.append((s, obj.id, img.url, "simple_hist_live"))
             except Exception:
                 continue
 
-    scored.sort(key=lambda x: -x[0])
-    seen_ids: set[str] = set()
-    for score, oid, url in scored:
-        if oid in seen_ids:
-            continue
-        obj = get_object(oid)
-        if not obj:
-            continue
-        seen_ids.add(oid)
-        results.append(
-            MatchResult(
-                object=obj,
-                score=round(score, 4),
-                method="simple_hist_live",
-                matched_image_url=url,
-            )
-        )
-        if len(results) >= top_k:
-            break
+    scored_live.sort(key=lambda x: -x[0])
+    results = _build_results(scored_live, top_k)
 
     if not results:
-        # Still return text-ish empty with objects that have no images
         query_note += (
-            " Catalog currently has few public images; expand seed via "
-            "scripts/ingest_met.py and scripts/ingest_cleveland.py."
+            " Catalog has few public images; expand via ingest scripts "
+            "or Research export."
         )
 
     return MatchResponse(

@@ -29,6 +29,8 @@ data/local/**
 !data/local/README.md
 data/cache/
 data/embeddings/
+data/eval/pairs.json
+!data/eval/pairs.example.json
 *.npy
 *.pt
 *.bin
