@@ -1,5 +1,8 @@
-# Optional ML extras for better crop quality (still free/open).
-# Core API works without these via edge-saliency crop.
+# Optional ML extras (core API works with edge-saliency only).
+# Crop
 rembg>=2.0.50
 onnxruntime>=1.17.0
-# Train separately (often on Colab): ultralytics
+# YOLO train / .pt crop (optional)
+ultralytics>=8.3.0
+# Stronger embeddings (after Phase 2):
+# sentence-transformers>=3.0.0

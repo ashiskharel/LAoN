@@ -125,8 +125,15 @@ Native wrappers (Expo / Capacitor) can come later if store distribution is requi
 | Phase | What | Cost |
 |---|---|---|
 | **ML-0** | Crop artifact before match (`edge_saliency` always; optional `rembg`) | $0 |
-| **ML-1** | Community YOLO `artifact` train on free Colab GPU | $0 |
+| **ML-1** | YOLO `artifact` crop when `ml/weights/laon-artifact.*` present | $0 |
 | **ML-2** | Fine iconography classes (later) | Volunteer labels |
+
+```bash
+python scripts/bootstrap_yolo_dataset.py --limit 40   # starter labels
+# train in Colab → copy best.pt to ml/weights/laon-artifact.pt
+python scripts/export_yolo_onnx.py
+# GET /api/ml/status  → yolo.ready
+```
 
 - Guide: [docs/ml-training.md](docs/ml-training.md)
 - Train notebook: [ml/notebooks/train_yolo_colab.ipynb](ml/notebooks/train_yolo_colab.ipynb)

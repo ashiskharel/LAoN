@@ -1,9 +1,9 @@
-"""Artifact crop / segmentation preprocessing (ML-0).
+"""Artifact crop / segmentation preprocessing.
 
-Cost-effective stack for a social project:
-- Default: numpy + Pillow saliency crop (no extra deps)
-- Optional: rembg (U2Net ONNX) if installed → pip install rembg onnxruntime
-- Future: YOLO-seg ONNX weights from ml/ training pipeline
+Cost-effective stack for a social project (priority order):
+1. ML-1 YOLO weights in ml/weights/ (optional ultralytics or onnxruntime)
+2. rembg U2Net if installed
+3. Edge-saliency / center fallback (always available)
 
 Does not identify deities — only focuses the frame on the main object.
 """
@@ -215,11 +215,39 @@ def crop_with_edge_saliency(image_bytes: bytes) -> CropResult:
     )
 
 
+def crop_with_yolo(image_bytes: bytes) -> Optional[CropResult]:
+    """ML-1: crop using local YOLO weights if present."""
+    try:
+        from .yolo_crop import detect_artifact_bbox
+    except Exception:
+        return None
+    try:
+        hit = detect_artifact_bbox(image_bytes)
+    except Exception:
+        return None
+    if not hit:
+        return None
+    bbox, method = hit
+    img = _load_image(image_bytes)
+    x0, y0, x1, y1 = bbox
+    cropped = img.crop((x0, y0, x1 + 1, y1 + 1))
+    return CropResult(
+        image_bytes=_to_jpeg_bytes(cropped),
+        method=method,
+        bbox=bbox,
+        original_size=(img.width, img.height),
+        cropped_size=cropped.size,
+        preview_jpeg_b64=_encode_jpeg_b64(cropped),
+        note="Cropped with community-trained / local YOLO artifact detector.",
+    )
+
+
 def crop_artifact(
     image_bytes: bytes,
     *,
     enabled: bool = True,
     prefer_rembg: bool = True,
+    prefer_yolo: bool = True,
 ) -> CropResult:
     """Return best available crop. If disabled, returns full image as pass-through."""
     img = _load_image(image_bytes)
@@ -234,6 +262,11 @@ def crop_artifact(
             preview_jpeg_b64=_encode_jpeg_b64(img),
             note="Crop disabled.",
         )
+
+    if prefer_yolo:
+        yolo = crop_with_yolo(image_bytes)
+        if yolo is not None:
+            return yolo
 
     if prefer_rembg:
         rem = crop_with_rembg(image_bytes)
