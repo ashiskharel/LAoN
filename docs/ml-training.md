@@ -37,6 +37,31 @@ Response includes `crop.preview_jpeg_b64`, `crop.method`, `crop.bbox`.
 
 Set `LAON_DISABLE_REMBG=1` to force the free edge crop even if rembg is installed.
 
+## ML-1 — YOLO crop wired into the API
+
+When weights exist at `ml/weights/laon-artifact.pt` or `.onnx`, match preprocessing uses them **before** rembg/edge.
+
+```bash
+# 1) Bootstrap weak dataset from open museum images
+python scripts/bootstrap_yolo_dataset.py --limit 40
+
+# 2) Train on Colab (notebook) or locally with ultralytics
+# 3) Place weights
+#    ml/weights/laon-artifact.pt
+python scripts/export_yolo_onnx.py
+
+# 4) Verify
+curl http://localhost:8000/api/ml/status
+```
+
+Env overrides:
+
+| Variable | Meaning |
+|---|---|
+| `LAON_YOLO_WEIGHTS` | Absolute path to .pt / .onnx |
+| `LAON_DISABLE_YOLO` | `1` to skip YOLO crop |
+| `LAON_DISABLE_REMBG` | `1` to skip rembg |
+
 ## ML-1 — Community YOLO training (~$0)
 
 ### Label schema (v1)

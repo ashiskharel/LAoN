@@ -22,7 +22,23 @@ pip install ultralytics
 yolo segment train data=ml/configs/laon-artifact.yaml model=yolo11n-seg.pt epochs=80 imgsz=640
 ```
 
-5. Copy `runs/.../weights/best.pt` → `ml/weights/laon-artifact.pt` (gitignored)
+5. Copy `runs/.../weights/best.pt` → `ml/weights/laon-artifact.pt` (gitignored)  
+6. Optional ONNX for lighter CPU load:
+
+```bash
+python scripts/export_yolo_onnx.py --weights ml/weights/laon-artifact.pt
+```
+
+7. Restart the API. Crop order becomes: **YOLO → rembg → edge**.  
+   Check: `GET http://localhost:8000/api/ml/status`
+
+### Bootstrap weak labels from the public seed
+
+```bash
+python scripts/bootstrap_yolo_dataset.py --limit 40
+```
+
+This writes full/edge boxes as class `artifact`. **Replace with human boxes** before trusting production crops.
 
 ## Label format (YOLO)
 

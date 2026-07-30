@@ -42,11 +42,49 @@ research_db.init_db()
 
 @app.get("/health")
 def health():
+    from .yolo_crop import yolo_status
+
     return {
         "ok": True,
         "service": "laon-api",
-        "version": "0.1.0",
+        "version": "0.1.1",
         "research_db": str(research_db.DB_PATH),
+        "yolo": yolo_status(),
+    }
+
+
+@app.get("/api/ml/status")
+def ml_status():
+    """Which crop / embed backends are available on this machine."""
+    from .yolo_crop import yolo_status
+
+    rembg_ok = False
+    try:
+        import rembg  # noqa: F401
+
+        rembg_ok = True
+    except Exception:
+        pass
+    openclip_ok = False
+    try:
+        # Present after Phase 2 PR is merged; optional otherwise
+        from .embeddings import openclip_image_vector  # type: ignore
+        from io import BytesIO
+        from PIL import Image
+
+        buf = BytesIO()
+        Image.new("RGB", (32, 32), (100, 100, 100)).save(buf, format="JPEG")
+        openclip_ok = openclip_image_vector(buf.getvalue()) is not None
+    except Exception:
+        openclip_ok = False
+
+    return {
+        "disclaimer": DISCLAIMER,
+        "crop_priority": ["yolo_weights", "rembg", "edge_saliency"],
+        "yolo": yolo_status(),
+        "rembg_available": rembg_ok,
+        "openclip_available": openclip_ok,
+        "weights_hint": "Place trained model at ml/weights/laon-artifact.onnx (or .pt)",
     }
 
 

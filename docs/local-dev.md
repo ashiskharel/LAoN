@@ -87,6 +87,9 @@ npm install
 $env:PRIVATE_CORPUS_PATH = "C:\Users\aerok\LAoN\data\private"
 $env:LAON_LOCAL_DIR = "C:\Users\aerok\LAoN\data\local"
 $env:LAON_CORS_ORIGINS = "http://localhost:3000,http://127.0.0.1:3000"
+$env:LAON_YOLO_WEIGHTS = "C:\Users\aerok\LAoN\ml\weights\laon-artifact.onnx"
 ```
 
-These are only needed for custom paths / CORS; defaults work on this machine.
+These are only needed for custom paths / CORS / custom YOLO weights; defaults work on this machine.
+
+ML crop status: http://localhost:8000/api/ml/status
